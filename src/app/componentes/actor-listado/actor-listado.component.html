@@ -1,0 +1,16 @@
+<ul *ngIf="vista" class="list-group">
+    <li (click)="SeleccionarActor(actor)" class="list-group-item lh-condensed "
+        *ngFor="let actor of listaActores">
+        <span>{{actor.nombre}} </span>
+        <span> {{actor.apellido}}</span>
+    </li>
+
+</ul>
+
+<div *ngIf="!vista" class="wrapper">
+
+    <div (click)="SeleccionarActor(actor)" *ngFor="let actor of listaActores">
+        <span>{{actor.nombre}} </span>
+        <span> {{actor.apellido}}</span>
+    </div>
+</div>

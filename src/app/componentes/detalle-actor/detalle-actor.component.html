@@ -1,0 +1,27 @@
+<ul *ngIf="actor" class="list-group mb-3">
+    <li class="list-group-item lh-condensed">
+        <div>
+            <ul class="list-group mb-3 text-muted">
+                <li class="list-group-item lh-condensed ">
+                    <span>Nombre: {{actor.nombre}}</span>
+                </li>
+                <li class="list-group-item lh-condensed ">
+                    <span>Apellido: {{actor.apellido}}</span>
+                </li>
+
+                <li class="list-group-item lh-condensed ">
+                    <span>Email: {{actor.email}}</span>
+                </li>
+
+                <li class="list-group-item lh-condensed ">
+                    <span>Dirección: {{actor.direccion}}</span>
+                </li>
+
+                <li class="list-group-item lh-condensed ">
+                    <span>País: {{actor.pais}}</span>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <br>
+    <p><a class="btn btn-secondary" (click)="limpiar()" role="button">limpiar</a></p>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<body class="bg-light">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Actores</span>
+                </h4>
+                <app-tabla-actor (seSeleccionoActor)="cambiarActor($event)"></app-tabla-actor>
+
+            </div>
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Alta Película</h4>
+                <form class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName">Nombre</label>
+                            <br>
+                            <input type="text" class="form-control" id="firstName" [(ngModel)]="nombre" name="nombre"
+                                placeholder="" value="" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="tipo">Tipo</label>
+                            <br>
+                            <select id="tipo" [(ngModel)]="tipo" name="tipo"></select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="start">Fecha de estreno </label>
+                        <br>
+                        <input type="date" id="start" name="trip-start" value="" min="1878-01-01" max=""
+                            [(ngModel)]="fechaDeEstreno" name="fechaDeEstreno">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cantidadPublico">Cantidad de Público</label>
+                        <br>
+                        <input type="number" class="form-control" id="cantidadPublico" [(ngModel)]="cantidadDePublico"
+                            name="cantidadDePublico" placeholder="" value="" required>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="actor">Actor</label>
+                        <br>
+                        <input type="text" readonly=true class="form-control" id="actor" [(ngModel)]="actorNombre"
+                            name="actor" placeholder="Elegir de la tabla de actores" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="photo">Foto de la película</label>
+                        <br>
+                        <input type="file" name="file" (input)="onFileChanged($event)" accept=".jpeg,.jpg,.png,.svg" />
+                        <br />
+
+                        <img [src]="downloadableURL" onerror="this.onerror=null;this.src='assets/noimage.png';"
+                            width="300px" height="300px" />
+
+                        <br />
+
+                        {{ downloadableURL }}
+
+                        <!-- Progress Bar -->
+
+                        <div *ngIf="progressValue | async as val">
+                            <progress type="warning" [value]="val" style="height: 7mm; width: 50%" max="100"></progress>
+                            <br />
+                            <span *ngIf="val<100" style="color:rgb(255, 60, 0); font-size: 17px; font-weight: 410;">{{
+                                val | number}}% </span><span *ngIf="val == 100"
+                                style="color:rgb(1, 153, 34);  font-size: 17px; font-weight: 410;">Completed !</span>
+                        </div>
+
+                        <!-- End -->
+                    </div>
+
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" (click)=guardarPelicula() onerror="showError()">Cargar
+                        película</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

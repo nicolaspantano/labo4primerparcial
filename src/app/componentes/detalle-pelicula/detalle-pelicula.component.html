@@ -1,0 +1,16 @@
+<div *ngIf="pelicula" >
+    <span>id: {{pelicula.id}}</span>
+    <br>
+    <span>nombre: {{pelicula.nombre}}</span>
+    <br>
+    <span>tipo: {{pelicula.tipo}}</span>
+    <br>
+    <span>fecha de estreno: {{pelicula.fechaDeEstreno}}</span>
+    <br>
+    <span>cantidad de público: {{pelicula.cantidadDePublico}}</span>
+    <br>
+    <img [src]="pelicula.fotoDeLaPelicula" alt="">
+</div>
+<br>
+<p><a class="btn btn-secondary" (click)="limpiar()" role="button">limpiar</a></p>
+

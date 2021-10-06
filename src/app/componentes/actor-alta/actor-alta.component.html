@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<body class="bg-light">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Países</span>
+                </h4>
+                <app-tabla-paises (seSeleccionoPais)="cambiarPais($event)" ></app-tabla-paises>
+
+            </div>
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Alta Actor</h4>
+                <form class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName">Nombre</label>
+                            <input type="text" class="form-control" id="firstName" [(ngModel)]="nombre" name="nombre" placeholder="" value="" required>
+                         </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName">Apellido</label>
+                            <input type="text" class="form-control" id="lastName" [(ngModel)]="apellido" name="apellido" placeholder="" value="" required>
+                           </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email">Email <span class="text-muted">(Opcional)</span></label>
+                        <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" placeholder="john.connery.k-po2000@hotmail.com">
+                      </div>
+
+                    <div class="mb-3">
+                        <label for="address">Dirección</label>
+                        <input type="text" class="form-control" id="address" [(ngModel)]="direccion" name="direccion" placeholder="Dr. R. Balbín 2551" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            <label for="country">Pais</label>
+                            <input type="text" readonly=true class="form-control" id="address" [(ngModel)]="pais" name="pais" placeholder="Elegir de la tabla de países" required>
+                        </div>
+
+                    </div>
+                    
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" (click)=guardarActor() >Cargar actor</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
