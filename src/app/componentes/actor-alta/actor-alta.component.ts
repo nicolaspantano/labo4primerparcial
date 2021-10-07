@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Actor } from 'src/app/clases/actor';
+import { Producto } from 'src/app/clases/producto';
 import { ActorService } from 'src/app/servicios/actor.service';
 
 @Component({
@@ -9,11 +9,13 @@ import { ActorService } from 'src/app/servicios/actor.service';
   styleUrls: ['./actor-alta.component.scss']
 })
 export class ActorAltaComponent implements OnInit {
-  public nombre;
-  public apellido;
-  public email;
-  public direccion;
+  public codigo;
+  public descripcion;
+  public precio;
+  public stock;
   public pais;
+  public comestible : boolean = true;
+
 
   constructor(private actorService:ActorService,  private toastr: ToastrService) { }
 
@@ -25,12 +27,14 @@ export class ActorAltaComponent implements OnInit {
   }
 
   guardarActor(){
-    let actor = new Actor(this.nombre, this.apellido, this.email, this.direccion, this.pais);
-    this.actorService.guardarActor(actor).then(resp => {
-      this.showSuccess();
-    }).catch((error) => {
-      this.showError(error);
-    });;
+    let actor = new Producto(this.codigo, this.descripcion, this.precio, this.stock, this.pais,this.comestible);
+    if(!this.codigo||!this.descripcion||!this.precio||!this.stock||!this.pais||!this.comestible){
+      this.showError('Tiene uno o mas campos vacios');
+    }else{
+      this.actorService.guardarActor(actor).then(resp => {
+        this.showSuccess();
+      });
+    }
   }
 
   showSuccess() {

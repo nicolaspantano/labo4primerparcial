@@ -1,0 +1,9 @@
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
+<main role="main" class="inner cover">
+    <img [src]="res.avatar_url" style="max-width: 200px;max-height: 200px;">
+    <h1 class="cover-heading">{{res.login}}</h1>
+    <p *ngFor="let campo of res | keyvalue">
+        <strong>{{campo.key}}</strong>: {{campo.value}}
+    </p>
+  </main>
+</div>

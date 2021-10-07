@@ -7,9 +7,12 @@ import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { PeliculaAltaComponent } from './componentes/pelicula-alta/pelicula-alta.component';
 import { PeliculaListadoComponent } from './componentes/pelicula-listado/pelicula-listado.component';
+import { LoginComponent } from './components/login/login.component';
+import { UserGuard } from './guards/user.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'bienvenido', pathMatch: 'full' },
+  { path: 'login', component:LoginComponent},
   {
     path: 'peliculas',
     children:
@@ -24,7 +27,7 @@ const routes: Routes = [
     children:
       [
         { path: '', redirectTo: 'alta', pathMatch: 'full' },
-        { path: 'alta', component: ActorAltaComponent },
+        { path: 'alta', component: ActorAltaComponent, canActivate: [UserGuard] },
         { path: 'listado', component: ActorListadoComponent },
         { path: 'actorpelicula', component: ActorPeliculaComponent }
       ]

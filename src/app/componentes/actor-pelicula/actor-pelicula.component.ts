@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Actor } from 'src/app/clases/actor';
+import { Producto  } from 'src/app/clases/producto';
 import { Pais } from 'src/app/clases/pais';
 import { Pelicula, Tipo } from 'src/app/clases/pelicula';
 import { PaisService } from 'src/app/servicios/pais.service';
@@ -11,7 +11,7 @@ import { PeliculaService } from 'src/app/servicios/pelicula.service';
   styleUrls: ['./actor-pelicula.component.scss']
 })
 export class ActorPeliculaComponent implements OnInit {
-  public actor: Actor;
+  public actor: Producto;
   public vista: boolean = false;
   public listaPaises: Pais[] = [];
   public arrayPeliculas: Pelicula[] = [];
@@ -21,7 +21,7 @@ export class ActorPeliculaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  mostrar(actor: Actor) {
+  mostrar(actor: Producto) {
     this.arrayPeliculas = [];
     this.listaPaises = [];
     this.actor = actor;
@@ -39,7 +39,7 @@ export class ActorPeliculaComponent implements OnInit {
       for (let index = 0; index < peliculas.length; index++) {
         const peli = peliculas[index];
         let actorId: string = peli.payload.doc.data().actorId;
-        if (peli.payload.doc.data().actorId == this.actor.id) {
+        /*if (peli.payload.doc.data().actorId == this.actor.id) {
           let id: string = peli.payload.doc.id;
           let nombre: string = peli.payload.doc.data().nombre;
           let tipo: Tipo = peli.payload.doc.data().tipo;
@@ -49,7 +49,7 @@ export class ActorPeliculaComponent implements OnInit {
           let peliNueva = new Pelicula(nombre, tipo, fechaDeEstreno, cantidadDePublico, fotoDeLaPelicula, actorId);
           peliNueva.id = id;
           this.arrayPeliculas.push(peliNueva)
-        }
+        }*/
       }
     })
   }

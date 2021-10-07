@@ -1,0 +1,23 @@
+<main class="form-signin mx-auto" style="margin-top:40px;width: 70%;">
+  <h1 class="h3 mb-3 fw-normal text-center">Iniciar sesion</h1>
+
+  <div class="form-floating">
+    <input type="email" class="form-control" id="floatingInput" placeholder="correo@electronico.com"
+      [(ngModel)]='user.correo'>
+    <label for="floatingInput">Email address</label>
+  </div>
+  <div class="form-floating">
+    <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña"
+      [(ngModel)]='user.password'>
+    <label for="floatingPassword">Password</label>
+  </div>
+
+  
+  <p><button class="w-100 btn btn-lg btn-primary" (click)="onLogin()">Iniciar Sesion</button></p>
+
+  <button class="w-100 btn btn-lg btn-primary" (click)="HardcodearUsuario('empleado')">HardcodearUsuarioEmpleado</button>
+  <button class="w-100 btn btn-lg btn-primary" (click)="HardcodearUsuario('admin')">HardcodearUsuarioAdmin</button>
+
+
+  
+</main>

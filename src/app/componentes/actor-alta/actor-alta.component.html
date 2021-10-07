@@ -1,10 +1,7 @@
-<!doctype html>
-<html lang="en">
 
-<body class="bg-light">
     <div class="container">
 
-        <div class="row">
+            <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                     <span class="text-muted">Países</span>
@@ -13,27 +10,27 @@
 
             </div>
             <div class="col-md-8 order-md-1">
-                <h4 class="mb-3">Alta Actor</h4>
+                <h4 class="mb-3">Alta Producto</h4>
                 <form class="needs-validation" novalidate>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="firstName">Nombre</label>
-                            <input type="text" class="form-control" id="firstName" [(ngModel)]="nombre" name="nombre" placeholder="" value="" required>
+                            <label for="firstName">Codigo</label>
+                            <input type="text" class="form-control" id="firstName" [(ngModel)]="codigo" name="codigo" placeholder="" value="" required>
                          </div>
                         <div class="col-md-6 mb-3">
-                            <label for="lastName">Apellido</label>
-                            <input type="text" class="form-control" id="lastName" [(ngModel)]="apellido" name="apellido" placeholder="" value="" required>
+                            <label for="lastName">Descripcion</label>
+                            <input type="text" class="form-control" id="lastName" [(ngModel)]="descripcion" name="descripcion" placeholder="" value="" required>
                            </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="email">Email <span class="text-muted">(Opcional)</span></label>
-                        <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" placeholder="john.connery.k-po2000@hotmail.com">
+                        <label for="email">Precio <span class="text-muted">(Opcional)</span></label>
+                        <input type="number" class="form-control" id="email" [(ngModel)]="precio" name="email" placeholder="$0">
                       </div>
 
                     <div class="mb-3">
-                        <label for="address">Dirección</label>
-                        <input type="text" class="form-control" id="address" [(ngModel)]="direccion" name="direccion" placeholder="Dr. R. Balbín 2551" required>
+                        <label for="address">Stock</label>
+                        <input type="text" class="form-control" id="address" [(ngModel)]="stock" name="direccion" placeholder="1000" required>
                     </div>
 
                     <div class="row">
@@ -43,14 +40,51 @@
                         </div>
 
                     </div>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            Comestible:
+                            <input type="checkbox" readonly=true  id="comestible" [(ngModel)]="comestible" [ngModelOptions]="{standalone: true}" name="pais" placeholder="Elegir de la tabla de países" required>
+                        </div>
+
+                    </div>
                     
                     <button class="btn btn-primary btn-lg btn-block" type="submit" (click)=guardarActor() >Cargar actor</button>
                 </form>
             </div>
         </div>
 
+
+
     </div>
 
-</body>
 
-</html>
+    <!--<h1>Mi formulario</h1>
+<form [formGroup]="form" (ngSubmit)="enviarForm()">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+      <div id="emailHelp" class="form-text" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">El email es requerido</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputNombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="emailHelp" formControlName="nombre">
+        <div id="emailHelp" class="form-text" *ngIf="form.get('nombre')?.hasError('tieneEspacio') && form.get('nombre')?.touched">El nombre no puede contener espacios</div>
+      </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+      <div id="emailHelpPass" class="form-text" *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched">La contraseña es requerido</div>
+
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputedad" class="form-label">Edad</label>
+        <input type="text" class="form-control" id="exampleInputedad" formControlName="edad">
+        <div id="emailHelpPass" class="form-text" *ngIf="form.get('edad')?.hasError('min') && form.get('edad')?.touched">La edad debe ser mas 18</div>
+  
+      </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="terminos">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+  </form>-->

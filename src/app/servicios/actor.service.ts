@@ -1,33 +1,35 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Actor } from '../clases/actor';
+import { Producto } from '../clases/producto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActorService {
 
-  actores;
+  productos;
 
   constructor(private firestore: AngularFirestore) {
-    this.actores = this.firestore.collection("actores").snapshotChanges();
+    this.productos = this.firestore.collection("productos").snapshotChanges();
   }
 
   getActores() {
-    return this.firestore.collection("actores").snapshotChanges();
+    return this.firestore.collection("productos").snapshotChanges();
   }
 
   getActor(key: string) {
-    return this.firestore.collection("actores").doc(key).valueChanges();
+    return this.firestore.collection("productos").doc(key).valueChanges();
   }
 
-  guardarActor(actor: Actor) {
-    return this.firestore.collection("actores").add({
-      nombre: actor.nombre,
-      apellido: actor.apellido,
-      email: actor.email,
-      direccion: actor.direccion,
-      pais: actor.pais,
+  guardarActor(producto: Producto) {
+    return this.firestore.collection("productos").add({
+      codigo: producto.codigo,
+      apellido: producto.descripcion,
+      precio: producto.precio,
+      direccion: producto.stock,
+      pais: producto.pais,
+      comestible: producto.comestible,
+
     });
   }
 

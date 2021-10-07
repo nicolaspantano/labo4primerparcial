@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireUploadTask, AngularFireStorage } from '@angular/fire/compat/storage';
 import { Observable } from 'rxjs';
-import { Actor } from 'src/app/clases/actor';
+import { Producto as Actor } from 'src/app/clases/producto';
 import { Pelicula, Tipo } from 'src/app/clases/pelicula';
 import { PeliculaService } from 'src/app/servicios/pelicula.service';
 import { ToastrService } from 'ngx-toastr';
@@ -58,8 +58,8 @@ export class PeliculaAltaComponent implements OnInit {
   }
 
   cambiarActor(actor: Actor) {
-    this.actorId = actor.id;
-    this.actorNombre = actor.nombre + ' ' + actor.apellido;
+    /*this.actorId = actor.id;
+    this.actorNombre = actor.nombre + ' ' + actor.apellido;*/
   }
 
   guardarPelicula() {

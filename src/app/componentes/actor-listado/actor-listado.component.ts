@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Actor } from 'src/app/clases/actor';
+import { Producto } from 'src/app/clases/producto';
 import { ActorService } from 'src/app/servicios/actor.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class ActorListadoComponent implements OnInit {
   @Output() seSeleccionoActorDeListado: EventEmitter<any> = new EventEmitter<any>();
   @Input() vista: boolean = false;
 
-  public listaActores: Actor[] = [];
+  public listaActores: Producto[] = [];
 
 
   constructor(private actorService: ActorService) { }
@@ -23,6 +23,7 @@ export class ActorListadoComponent implements OnInit {
     let direccion: string;
     let pais: string;
     let id: string;
+    let comestible;
     this.actorService.getActores().subscribe((actores: any) => {
       for (let index = 0; index < actores.length; index++) {
         const actor = actores[index];
@@ -32,14 +33,14 @@ export class ActorListadoComponent implements OnInit {
         direccion = actor.payload.doc.data().direccion;
         pais = actor.payload.doc.data().pais;
         id = actor.payload.doc.id;
-        let actorAux = new Actor(nombre, apellido, email, direccion, pais);
-        actorAux.id = id;
+        let actorAux = new Producto(nombre, apellido, email, direccion, pais,comestible);
+        //actorAux.id = id;
         this.listaActores.push(actorAux);
       }
     });
   }
 
-  SeleccionarActor(actor: Actor) {
+  SeleccionarActor(actor: Producto) {
     this.seSeleccionoActorDeListado.emit(actor);
   }
 

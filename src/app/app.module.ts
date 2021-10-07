@@ -28,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
 import { DetallePaisComponent } from './componentes/detalle-pais/detalle-pais.component';
-import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';    // For Storage    <<<<<<
+import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';
+import { LoginComponent } from './components/login/login.component';    // For Storage    <<<<<<
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor
     ActorPeliculaComponent,
     DetallePaisComponent,
     DetalleActorComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

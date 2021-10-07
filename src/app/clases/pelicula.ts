@@ -1,4 +1,4 @@
-import { Actor } from "./actor";
+import { Producto } from "./producto";
 
 export class Pelicula {
 
