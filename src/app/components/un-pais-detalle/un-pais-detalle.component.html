@@ -1,0 +1,28 @@
+<div *ngIf="pais" class="text-center">
+
+    <img [src]="pais.bandera">
+    <ul class="list-group mb-3">
+
+        <li class="list-group-item lh-condensed">
+            <div>
+                <ul class="list-group mb-3 text-muted">
+                    <li class="list-group-item lh-condensed ">
+                        <span>Nombre: {{pais.nombre}}</span>
+                    </li>
+
+                   <!-- <li class="list-group-item lh-condensed ">
+                        <span>Precio: {{pais.precio}}</span>
+                    </li>
+
+                    <li class="list-group-item lh-condensed ">
+                        <span>Stock: {{pais.direccion}}</span>
+                    </li>
+
+                    <li class="list-group-item lh-condensed ">
+                        <span>País: {{pais.pais}}</span>
+                    </li>-->
+                    </ul>
+            </div>
+    </ul>
+
+</div>

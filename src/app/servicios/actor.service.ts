@@ -14,7 +14,7 @@ export class ActorService {
   }
 
   getActores() {
-    return this.firestore.collection("productos").snapshotChanges();
+    return this.firestore.collection("productos").valueChanges();
   }
 
   getActor(key: string) {

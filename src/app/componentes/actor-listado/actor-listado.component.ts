@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Pais } from 'src/app/clases/pais';
 import { Producto } from 'src/app/clases/producto';
 import { ActorService } from 'src/app/servicios/actor.service';
+import { PaisService } from 'src/app/servicios/pais.service';
 
 @Component({
   selector: 'app-actor-listado',
@@ -13,8 +15,10 @@ export class ActorListadoComponent implements OnInit {
 
   public listaActores: Producto[] = [];
 
-
-  constructor(private actorService: ActorService) { }
+prod;
+pais;
+bandera;
+  constructor(private actorService: ActorService, private paisSvc:PaisService) { }
 
   ngOnInit(): void {
     let nombre: string;
@@ -42,6 +46,14 @@ export class ActorListadoComponent implements OnInit {
 
   SeleccionarActor(actor: Producto) {
     this.seSeleccionoActorDeListado.emit(actor);
+  }
+
+  obtenerProducto(e){
+   this.prod=e;
+   this.paisSvc.getPaisByName(this.prod.pais).subscribe((res)=>{
+     console.log(res[0].name);
+     this.pais= new Pais(res[0].translations.spa.official ,res[0].flags.png) 
+   })
   }
 
 }

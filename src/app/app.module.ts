@@ -29,7 +29,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
 import { DetallePaisComponent } from './componentes/detalle-pais/detalle-pais.component';
 import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';
-import { LoginComponent } from './components/login/login.component';    // For Storage    <<<<<<
+import { LoginComponent } from './components/login/login.component';
+import { UnPaisDetalleComponent } from './components/un-pais-detalle/un-pais-detalle.component';    // For Storage    <<<<<<
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { LoginComponent } from './components/login/login.component';    // For S
     DetallePaisComponent,
     DetalleActorComponent,
     LoginComponent,
+    UnPaisDetalleComponent,
   ],
   imports: [
     BrowserModule,
