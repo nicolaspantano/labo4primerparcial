@@ -23,7 +23,7 @@ const routes: Routes = [
       ]
   },
   {
-    path: 'actor',
+    path: 'producto',
     children:
       [
         { path: '', redirectTo: 'alta', pathMatch: 'full' },
